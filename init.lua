@@ -220,6 +220,7 @@ require('lazy').setup({
 
   {
     'stevearc/oil.nvim',
+    -- Optional dependencies,
     opts = {
       -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
       -- Set to false if you still want to use netrw.
@@ -357,7 +358,6 @@ require('lazy').setup({
         },
       },
     },
-    -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
@@ -482,6 +482,16 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Split window
+vim.keymap.set("n", "ss", ":split<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "sv", ":vsplit<Return>", { noremap = true, silent = true })
+
+-- Move window
+vim.keymap.set("n", "sh", "<C-w>h")
+vim.keymap.set("n", "sk", "<C-w>k")
+vim.keymap.set("n", "sj", "<C-w>j")
+vim.keymap.set("n", "sl", "<C-w>l")
 
 -- Move line(s) up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
